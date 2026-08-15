@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <meta
+    name="description"
+    content="EverMore - a private digital sanctuary for dreams and memories."
+  >
+  <title>EverMore - A Garden of Dreams</title>
+
+<link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)">
+<link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+<link
+  href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap)"
+  rel="stylesheet"
+/>
+
+
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <canvas id="nightCanvas" aria-hidden="true"></canvas>
+
+  <div class="mist mist-one" aria-hidden="true"></div>
+  <div class="mist mist-two" aria-hidden="true"></div>
+  <div id="petalLayer" class="petal-layer" aria-hidden="true"></div>
+
+  <header id="siteHeader" class="site-header hidden">
+    <button
+      id="brandButton"
+      class="brand"
+      type="button"
+      data-page="home"
+      aria-label="Return to Garden Entrance"
+    >
+      <span class="brand-flower">✦</span>
+      <span>EverMore</span>
+    </button>
+
+    <button
+      id="menuButton"
+      class="menu-button"
+      type="button"
+      aria-label="Open navigation"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="mainNav" class="main-nav" aria-label="Garden navigation">
+      <button type="button" data-page="home">Entrance</button>
+      <button type="button" data-page="journal">Journal</button>
+      <button type="button" data-page="bucket">Dreams</button>
+      <button type="button" data-page="travel">Travel</button>
+      <button type="button" data-page="gallery">Photography</button>
+      <button type="button" data-page="memory">Memories</button>
+      <button type="button" data-page="letters">Letters</button>
+      <button type="button" data-page="gratitude">Gratitude</button>
+    </nav>
+  </header>
+
+  <button
+    id="soundButton"
+    class="sound-button hidden"
+    type="button"
+    aria-label="Toggle ambient sound"
+    title="Ambient sound"
+  >
+    ♫
+  </button>
+
+  <main>
+    <!-- Landing -->
+    <section id="landing" class="landing active">
+      <div class="moon" aria-hidden="true"></div>
+
+      <div class="landing-content">
+        <div class="hydrangea-hero"></div>
+
+        <p class="eyebrow">A private garden beyond time</p>
+        <h1>EverMore</h1>
+        <p class="tagline">A garden where every dream blooms quietly.</p>
+
+        <button id="enterButton" class="primary-button" type="button">
+          Enter the Garden
+          <span aria-hidden="true">✦</span>
+        </button>
+      </div>
+
+      <div class="lake-reflection" aria-hidden="true">
+        <div class="lake-light"></div>
+        <div class="ripple ripple-one"></div>
+        <div class="ripple ripple-two"></div>
+        <div class="ripple ripple-three"></div>
+      </div>
+    </section>
+
+    <!-- Garden home -->
+    <section id="home" class="page">
+      <div class="page-shell">
+        <div class="section-intro">
+          <p class="eyebrow">The midnight garden</p>
+          <h2>Where shall we wander tonight?</h2>
+          <p>
+            Keep the quiet fragments of your life among flowers,
+            constellations, reflections, and sealed letters.
+          </p>
+        </div>
+
+        <div class="garden-grid">
+          <button class="garden-card journal-card" type="button" data-page="journal">
+            <span class="card-icon">📖</span>
+            <span class="card-copy">
+              <strong>Dream Journal</strong>
+              <small>Thoughts resting between paper and moonlight</small>
+            </span>
+          </button>
+
+          <button class="garden-card bucket-card" type="button" data-page="bucket">
+            <span class="card-icon">❀</span>
+            <span class="card-copy">
+              <strong>Bucket List Garden</strong>
+              <small>Plant each wish and watch it bloom</small>
+            </span>
+          </button>
+
+          <button class="garden-card travel-card" type="button" data-page="travel">
+            <span class="card-icon">✧</span>
+            <span class="card-copy">
+              <strong>Travel Constellation</strong>
+              <small>Map distant places into stars</small>
+            </span>
+          </button>
+
+          <button class="garden-card gallery-card" type="button" data-page="gallery">
+            <span class="card-icon">▣</span>
+            <span class="card-copy">
+              <strong>Photography</strong>
+              <small>Frames for moments not yet forgotten</small>
+            </span>
+          </button>
+
+          <button class="garden-card memory-card" type="button" data-page="memory">
+            <span class="card-icon">◌</span>
+            <span class="card-copy">
+              <strong>Memory Lake</strong>
+              <small>Let treasured moments float gently</small>
+            </span>
+          </button>
+
+          <button class="garden-card letter-card" type="button" data-page="letters">
+            <span class="card-icon">✉</span>
+            <span class="card-copy">
+              <strong>Letters to Future Me</strong>
+              <small>Words sealed until their chosen season</small>
+            </span>
+          </button>
+
+          <button class="garden-card gratitude-card" type="button" data-page="gratitude">
+            <span class="card-icon">✿</span>
+            <span class="card-copy">
+              <strong>Gratitude Garden</strong>
+              <small>Small lights for all that remains beautiful</small>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dream Journal -->
+    <section id="journal" class="page">
+      <div class="page-shell">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Pages beneath the stars</p>
+            <h2>Dream Journal</h2>
+          </div>
+
+          <button id="newJournalButton" class="secondary-button" type="button">
+            + New Page
+          </button>
+        </div>
+
+        <div class="journal-layout">
+          <aside class="journal-sidebar glass-panel">
+            <label class="field-label" for="journalSearch">Search the pages</label>
+            <input
+              id="journalSearch"
+              class="text-input"
+              type="search"
+              placeholder="A word, a feeling..."
+            >
+            <div id="journalList" class="journal-list"></div>
+          </aside>
+
+          <article class="open-book">
+            <div class="book-page">
+              <div class="book-topline">
+                <input
+                  id="journalDate"
+                  class="paper-date"
+                  type="date"
+                  aria-label="Journal date"
+                >
+
+                <button
+                  id="journalFavorite"
+                  class="favorite-button"
+                  type="button"
+                  aria-label="Favorite this entry"
+                  title="Favorite"
+                >
+                  ☆
+                </button>
+              </div>
+
+              <input
+                id="journalTitle"
+                class="paper-title"
+                type="text"
+                placeholder="Give this page a name..."
+              >
+
+              <select id="journalMood" class="paper-select" aria-label="Mood">
+                <option value="hopeful">Hopeful</option>
+                <option value="calm">Calm</option>
+                <option value="dreamy">Dreamy</option>
+                <option value="nostalgic">Nostalgic</option>
+                <option value="grateful">Grateful</option>
+                <option value="uncertain">Uncertain</option>
+              </select>
+
+              <textarea
+                id="journalContent"
+                class="paper-textarea"
+                placeholder="Write what the night has been holding for you..."
+              ></textarea>
+
+              <div class="book-actions">
+                <span id="journalStatus">Your page saves quietly.</span>
+                <button id="deleteJournalButton" class="text-button danger" type="button">
+                  Delete page
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bucket list -->
+    <section id="bucket" class="page">
+      <div class="page-shell">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Plant a quiet possibility</p>
+            <h2>Bucket List Garden</h2>
+          </div>
+        </div>
+
+        <form id="bucketForm" class="inline-form glass-panel">
+          <input
+            id="bucketInput"
+            class="text-input"
+            type="text"
+            maxlength="100"
+            placeholder="A dream you would love to live..."
+            required
+          >
+          <button class="secondary-button" type="submit">Plant Dream</button>
+        </form>
+
+        <div id="bucketGarden" class="bucket-garden"></div>
+      </div>
+    </section>
+
+    <!-- Travel -->
+    <section id="travel" class="page">
+      <div class="page-shell">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Stars beyond familiar skies</p>
+            <h2>Travel Constellation</h2>
+          </div>
+        </div>
+
+        <form id="travelForm" class="travel-form glass-panel">
+          <input
+            id="travelPlace"
+            class="text-input"
+            type="text"
+            placeholder="City or country"
+            required
+          >
+
+          <select id="travelStatus" class="text-input">
+            <option value="dream">Dreaming of</option>
+            <option value="visited">Visited</option>
+          </select>
+
+          <textarea
+            id="travelNote"
+            class="text-input compact-area"
+            placeholder="A hope, note, or memory..."
+          ></textarea>
+
+          <button class="secondary-button" type="submit">Add a Star</button>
+        </form>
+
+        <div class="constellation glass-panel">
+          <svg
+            id="constellationLines"
+            class="constellation-lines"
+            viewBox="0 0 1000 560"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          ></svg>
+
+          <div class="world-outline" aria-hidden="true">
+            <span class="continent c1"></span>
+            <span class="continent c2"></span>
+            <span class="continent c3"></span>
+            <span class="continent c4"></span>
+            <span class="continent c5"></span>
+          </div>
+
+          <div id="travelStars"></div>
+        </div>
+
+        <div id="travelList" class="compact-list"></div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="page">
+      <div class="page-shell">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Light caught and remembered</p>
+            <h2>Photography Gallery</h2>
+          </div>
+
+          <label class="secondary-button upload-button">
+            Add Photograph
+            <input id="galleryUpload" type="file" accept="image/*" multiple hidden>
+          </label>
+        </div>
+
+        <p class="section-note">
+          Small compressed images are stored in this browser. Large files may exceed
+          browser storage limits.
+        </p>
+
+        <div id="galleryGrid" class="gallery-grid"></div>
+      </div>
+    </section>
+
+    <!-- Memories -->
+    <section id="memory" class="page">
+      <div class="page-shell">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Reflections that still shimmer</p>
+            <h2>Memory Lake</h2>
+          </div>
+        </div>
+
+        <form id="memoryForm" class="memory-form glass-panel">
+          <input
+            id="memoryTitle"
+            class="text-input"
+            type="text"
+            placeholder="Name this memory"
+            required
+          >
+
+          <input id="memoryDate" class="text-input" type="date">
+
+          <textarea
+            id="memoryText"
+            class="text-input compact-area"
+            placeholder="What do you wish to remember?"
+            required
+          ></textarea>
+
+          <select id="memoryEmotion" class="text-input">
+            <option value="warm">Warm</option>
+            <option value="peaceful">Peaceful</option>
+            <option value="bittersweet">Bittersweet</option>
+            <option value="joyful">Joyful</option>
+          </select>
+
+          <button class="secondary-button" type="submit">Set It Afloat</button>
+        </form>
+
+        <div class="memory-lake">
+          <div class="lake-horizon"></div>
+          <div id="memoryBoats" class="memory-boats"></div>
+          <div class="water-lines" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Letters -->
+    <section id="letters" class="page">
+      <div class="page-shell">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Words waiting for another season</p>
+            <h2>Letters to Future Me</h2>
+          </div>
+        </div>
+
+        <div class="letters-layout">
+          <form id="letterForm" class="letter-paper">
+            <input
+              id="letterTitle"
+              class="paper-title"
+              type="text"
+              placeholder="For the person I am becoming..."
+              required
+            >
+
+            <label class="paper-label" for="letterDate">Open this letter on</label>
+            <input id="letterDate" class="paper-date" type="date" required>
+
+            <textarea
+              id="letterText"
+              class="paper-textarea"
+              placeholder="Dear future me..."
+              required
+            ></textarea>
+
+            <button class="seal-button" type="submit">
+              <span>Seal Letter</span>
+              <i aria-hidden="true">E</i>
+            </button>
+          </form>
+
+          <div id="letterTimeline" class="letter-timeline"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gratitude -->
+    <section id="gratitude" class="page">
+      <div class="page-shell">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Small lights gathered together</p>
+            <h2>Gratitude Garden</h2>
+          </div>
+        </div>
+
+        <form id="gratitudeForm" class="inline-form glass-panel">
+          <input
+            id="gratitudeInput"
+            class="text-input"
+            type="text"
+            maxlength="120"
+            placeholder="Something quietly beautiful..."
+            required
+          >
+          <button class="secondary-button" type="submit">Grow a Flower</button>
+        </form>
+
+        <div id="gratitudeGarden" class="gratitude-garden"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Reusable modal -->
+  <div
+    id="modal"
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle"
+  >
+    <div class="modal-backdrop" data-close-modal></div>
+
+    <article class="modal-card">
+      <button
+        class="modal-close"
+        type="button"
+        data-close-modal
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+      <p id="modalKicker" class="eyebrow"></p>
+      <h3 id="modalTitle"></h3>
+      <div id="modalBody" class="modal-body"></div>
+    </article>
+  </div>
+ <audio id="ambientAudio" loop preload="auto">
+  <source src="audio/song.mp3" type="audio/mpeg">
+</audio>
+
+<script src="js/effects.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
